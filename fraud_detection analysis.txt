@@ -1,0 +1,35 @@
+create database fraud_detection; 
+use fraud_detection;
+
+select * from fraud_detection;
+
+-- Show the cards that will expire on MAR
+select Credit_card_number,expiry
+from fraud_detection
+where Expiry like "MAR%";
+
+-- Show the credit card and the income amount
+select Credit_card_number,Income 
+from fraud_detection;
+
+-- Show the profession and the security code 
+select profession,security_code
+from fraud_detection;
+
+-- SHow the secrity code and the one that have been detected as fraud 
+select security_code, Fraud from fraud_detection
+where fraud= 1;
+-- SHow the lawyer and fraud rate update 
+select profession, fraud from fraud_detection
+where profession= "Lawyer";
+
+select * from fraud_detection;
+-- total of income for all profession
+select sum(income), Profession
+from fraud_detection
+group by profession;
+
+select avg(Credit_card_number), Profession
+from fraud_detection
+group by Profession;
+
